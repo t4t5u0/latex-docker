@@ -1,10 +1,15 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 
-$latex = 'platex -synctex=1 -halt-on-error %O %S';
-$latex_silent = 'platex -synctex=1 -halt-on-error -interaction=batchmode %O %S';
-$bibtex = 'pbibtex -kanji=utf8 %O %B';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$makeindex = 'mendex %O -o %D %S';
+@default_files  = ('main.tex');
+$out_dir        = 'output/';
 
-$pdf_mode = 3;
-$max_repeat = 10;
+
+$lualatex       = 'lualatex %O %S';
+$bibtex         = 'pbibtex %O %B';
+$makeindex      = 'mendex %O -o %D %S';
+$max_repeat     = 10;
+$pdf_mode       = 4; # pdf化にlualatexを用いる
+
+$ENV{TZ} = 'Asia/Tokyo';
+$ENV{OPENTYPEFONTS} = '/usr/share/fonts//:';
+$ENV{TTFONTS} = '/usr/share/fonts//:';
