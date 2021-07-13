@@ -12,7 +12,8 @@ RUN apt-get update && \
         libfontconfig1-dev \
         libfreetype6-dev \
         ghostscript \
-        perl && \
+        perl  \
+        texlive-font-utils && \
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
@@ -51,7 +52,8 @@ RUN tlmgr update --self && \
         collection-plaingeneric \
         collection-xetex \
         latexmk \
-        latexdiff
+        latexdiff \
+        epstopdf
 
 WORKDIR /workdir
 
